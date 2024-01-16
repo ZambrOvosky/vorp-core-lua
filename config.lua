@@ -23,9 +23,10 @@ Config = {
 	initJob                  = 'unemployed', -- leave it like this
 	initJobGrade             = 0,         -- leave it like this
 	initGroup                = 'user',    -- leave it like this
+	initJobLabel             = "Unemployed", -- leave it like this
 	Whitelist                = false,     -- dont use
 	AllowWhitelistAutoUpdate = false,     -- dont use
-	SavePlayersStatus        = true,      -- save players health stamina inner and outter core to DB?
+	SavePlayersStatus        = true,      -- save players health stamina inner and outter core to DB? att: dont use this it will be removed soon, no place for core.
 	maxHealth                = 2,         -- 10 is FULL 0 IS EMPTY define max outer core for players
 	maxStamina               = 5,         -- 10 is FULL 0 IS EMPTY define max outer core for players
 	PVP                      = true,      -- Can players attack/hurt one another
@@ -37,6 +38,7 @@ Config = {
 	SavePlayersHours         = true,      -- if you want to save players played hours in DB, tx admin already have this
 	--========================================
 	---MULTICHAR
+	SaveDiscordNameDB        = true, -- TRUE if you want save discordid on character/user DB when player join and drop (need to update SQL)
 	SaveSteamNameDB          = true, -- TRUE if you want save steamname on character DB when player drop (need to update SQL)
 	UseCharPermission        = false, --| if false it will let players create maxchars bellow
 	MaxCharacters            = 1,  --MAX ALLOWED TO BE CREATED [if UseCharPermission = true, SELECTED players(with command) can create MaxCharacters characters / if UseCharPermission = false, players can create MaxCharacters characters]
@@ -131,14 +133,23 @@ Config = {
 	SetBothDBadmin           = false, -- if set true should the command addGroup set admins on both tables in databse!
 	--=======================================================
 	---BUILT IN RICH PRESENCE DISCORD
-	maxplayers               = 128,                          -- change to the number of players that can get in to your server
-	appid                    = 1148323533395599420,          -- Application ID (Replace this with you own)
-	biglogo                  = 'eldorado',                   -- image assets name for the "large" icon.
-	biglogodesc              = 'ELDORADO ROLEPLAY',          -- text when hover over image
-	smalllogo                = 'redm',                       -- image assets name for the "small" icon.(OPTIONAL)
-	smalllogodesc            = 'RedM',                       -- text when hover over image
-	discordlink              = 'https://discord.gg/EldoradoRP', -- discord link
-	richpresencebutton       = 'Juntar-se',                  --set button text for Rich Presence Button
-	shownameandid            = false,                        --show player steam name and id
+	maxplayers               = 128,              -- change to the number of players that can get in to your server
+	appid                    = 1148323533395599420, -- Application ID (Replace this with you own)
+	biglogo                  = 'eldorado',       -- image assets name for the "large" icon.
+	biglogodesc              = 'ELDORADO ROLEPLAY', -- text when hover over image
+	smalllogo                = 'redm',           -- image assets name for the "small" icon.(OPTIONAL)
+	smalllogodesc            = 'RedM',           -- text when hover over image
+	richpresencebutton       = 'Juntar-se a nós', --set button text for Rich Presence Button
+	shownameandid            = false,            --show player steam name and id
+	Buttons                  = {                 -- Show Discord Rich Presence Button
+		{
+			text = 'Discord',
+			url = 'https://discord.gg/EldoradoRP' -- Example for Rich Presence Button
+		},
+		{
+			text = 'Site',
+			url = 'https://eldoradorp.com.br/' -- Example for Rich Presence Button
+		}
+	}
 	--======================================================
 }
