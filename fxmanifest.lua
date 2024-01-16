@@ -15,35 +15,25 @@ shared_scripts {
 client_scripts {
 	'client/ref/*.lua',
 	'client/exports/*.lua',
-	'client/cl_coreactions.lua',
-	'client/cl_*.lua',
-	'client/cl_commands.lua',
+	'client/coreactions.lua',
+	'client/*.lua',
 }
 
 server_scripts {
 	'@oxmysql/lib/MySQL.lua',
-	'server/class/sv_*.lua',
+	'server/class/*.lua',
 	'config/commands.lua',
-	'server/sv_*lua',
+	'server/*lua',
 	'server/services/dbupdater/*.lua',
-
 }
 
 files {
 	'ui/**/*',
-	'ui/assets/**/*',
-	'ui/vendor/*',
-	'ui/style/*',
 }
 
 ui_page 'ui/index.html'
 
-
----@deprecated  refer to the API docs
---server_exports { 'vorpAPI' }
-
-
-version '2.3'
+version '2.4'
 vorp_checker 'yes'
 vorp_name '^4Resource version Check^3'
 vorp_github 'https://github.com/VORPCORE/vorp-core-lua'

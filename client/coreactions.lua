@@ -1,34 +1,47 @@
 ---@class CoreAction CoreAction
----@field HealPlayer fun()
----@field DeleteHorse fun()
----@field DeleteVehicleInRadius fun(radius: number)
+---@field Admin CoreAction.Admin admin actions
+---@field Utils CoreAction.Utils utils
+---@field Player CoreAction.Player player actions
 CoreAction = {}
----@class CoreAction.Admin CoreAction.Admin
 CoreAction.Admin = {}
-
----@class CoreAction.Utils CoreAction.Functions
 CoreAction.Utils = {}
+---@class CoreAction.Player
+CoreAction.Player = {}
 
 local T = Translation[Lang].MessageOfSystem
 
---- heal player cores
+
 function CoreAction.Admin.HealPlayer()
     local player = PlayerPedId()
-    Citizen.InvokeNative(0xC6258F41D86676E0, player, 0, 100) -- SetAttributeCoreValue
+    Citizen.InvokeNative(0xC6258F41D86676E0, player, 0, 100) -- _SET_ATTRIBUTE_CORE_VALUE HEALTH
     SetEntityHealth(player, 600, 1)
-    Citizen.InvokeNative(0xC6258F41D86676E0, player, 1, 100) -- SetAttributeCoreValue
+    Citizen.InvokeNative(0xC6258F41D86676E0, player, 1, 100) --_SET_ATTRIBUTE_CORE_VALUE STAMINA
     Citizen.InvokeNative(0x675680D089BFA21F, player, 1065330373)
+    -- not sure why but player will be invincible from this point, only when max chars is to 1, makes no sense. so we gotta invoke these natives after healing.
+    FreezeEntityPosition(player, false)
+    SetEntityVisible(player, true)
+    SetPlayerInvincible(PlayerId(), false)
+    SetEntityCanBeDamaged(player, true)
+    SetGameplayCamRelativeHeading(0.0, 1.0)
 end
 
---- delete horse if player is on horse
 function CoreAction.Admin.DeleteHorse()
     local player = PlayerPedId()
-    if IsPedOnMount(player) then
-        local mount = GetMount(player)
-        DeleteEntity(mount)
-    else
-        VorpNotification:NotifyRightTip(T.sit, 3000)
+
+    if not IsPedOnMount(player) then
+        return VorpNotification:NotifyRightTip(T.sit, 3000)
     end
+    local mount = GetMount(player)
+    local attempt = 0
+    if not NetworkHasControlOfEntity(mount) then
+        NetworkRequestControlOfEntity(mount)
+        repeat
+            Wait(100)
+            attempt = attempt + 1
+        until NetworkHasControlOfEntity(mount) or attempt > 100 or not DoesEntityExist(mount)
+    end
+
+    DeleteEntity(mount)
 end
 
 local entityEnumerator = {
@@ -64,8 +77,6 @@ local function EnumerateEntities(initFunc, moveFunc, disposeFunc)
     end)
 end
 
-
---- delete all vehicles within radius
 ---@param radius number
 function CoreAction.Admin.DeleteVehicleInRadius(radius)
     local player = PlayerPedId()
@@ -163,7 +174,7 @@ function CoreAction.Admin.TeleportToWayPoint()
     local found = false
 
     if not waypoint then
-        return VorpNotification:NotifyRightTip("you need to set a waypoint", 3000)
+        return VorpNotification:NotifyRightTip("~e~you need to set a waypoint", 3000)
     end
 
     DoScreenFadeOut(500)
@@ -178,11 +189,10 @@ function CoreAction.Admin.TeleportToWayPoint()
         Wait(1000)
         found, groundZ = GetGroundZAndNormalFor_3dCoord(x, y, z)
         if found then
+            RequestCollisionAtCoord(x, y, groundZ)
+            Wait(200)
             SetEntityCoords(ped, x, y, groundZ, false, false, false, false)
-            while not HasCollisionLoadedAroundEntity(PlayerPedId()) do
-                RequestCollisionAtCoord(x, y, groundZ)
-                Wait(500)
-            end
+            repeat Wait(0) until HasCollisionLoadedAroundEntity(ped)
             FreezeEntityPosition(ped, false)
             Wait(1000)
             DoScreenFadeIn(650)
@@ -193,9 +203,10 @@ end
 
 function CoreAction.Utils.LoadModel(hash)
     if IsModelValid(hash) then
-        RequestModel(hash, false)
-        while not HasModelLoaded(hash) do
-            Wait(0)
+        if not HasModelLoaded(hash) then
+            RequestModel(hash, false)
+            repeat Wait(0) until HasModelLoaded(hash)
+            return true
         end
         return true
     end
@@ -205,9 +216,7 @@ end
 function CoreAction.Utils.LoadTexture(hash)
     if not HasStreamedTextureDictLoaded(hash) then
         RequestStreamedTextureDict(hash, true)
-        while not HasStreamedTextureDictLoaded(hash) do
-            Wait(1)
-        end
+        repeat Wait(0) until HasStreamedTextureDictLoaded(hash)
         return true
     end
     return false
