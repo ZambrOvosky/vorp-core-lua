@@ -143,13 +143,13 @@ Config = {
 	shownameandid            = false,            --show player steam name and id
 	Buttons                  = {                 -- Show Discord Rich Presence Button
 		{
+			text = 'Juntar-se',
+			url = 'https://cfx.re/join/emkrem' -- Example for Rich Presence Button
+		},
+		{
 			text = 'Discord',
 			url = 'https://discord.gg/EldoradoRP' -- Example for Rich Presence Button
 		},
-		{
-			text = 'Site',
-			url = 'https://eldoradorp.com.br/' -- Example for Rich Presence Button
-		}
 	}
 	--======================================================
 }
