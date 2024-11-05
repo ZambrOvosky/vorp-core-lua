@@ -1,0 +1,106 @@
+{
+	// Place your EldoradoRP workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"Declare VorpCore": {
+		"prefix": "VorpCore",
+		"body": [
+			"local VorpCore = {}\n",
+			"TriggerEvent('getCore', function(core)",
+			"\tVorpCore = core",
+			"end)"
+		],
+		"description": "Call VorpCore for you"
+	},
+	"Declare VorpUtils": {
+		"prefix": "VorpUtils",
+		"body": [
+			"local VorpUtils = {}\n",
+			"TriggerEvent('getUtils', function(utils)",
+			"\tVorpUtils = utils",
+			"end)"
+		],
+		"description": "Call VorpUtils for you"
+	},
+	"Declare VorpCore and VorpUtils": {
+		"prefix": "VorpCoreUtils",
+		"body": [
+			"local VorpCore = {}",
+			"local VorpUtils = {}\n",
+			"TriggerEvent('getCore', function(core)",
+			"\tVorpCore = core",
+			"end)\n",
+			"TriggerEvent('getUtils', function(utils)",
+			"\tVorpUtils = utils",
+			"end)"
+		],
+		"description": "Call VorpUtils for you"
+	},
+	"Initiate Vorp Progressbar": {
+		"prefix": "VorpProg",
+		"body": [
+			"progressbar = exports.vorp_progressbar:initiate()"
+		],
+		"description": "Initiate Vorp Progressbar for you"
+	},
+	"Initiate Vorp Inventory": {
+		"prefix": "VorpInv",
+		"body": [
+			"local VorpInv = {}",
+			"VorpInv = exports.vorp_inventory:vorp_inventoryApi()"
+		],
+		"description": "Initiate Vorp Inventory for you"
+	},
+	"Server Callback": {
+		"prefix": "RpcServer",
+		"body": [
+			"VorpCore.addRpcCallback('$1', function(source, cb, args)\n\tlocal _source = soure\n\t$0\nend)"
+		],
+		"description": "Create Vorp RPC Callback on server"
+	},
+	"Client Callback": {
+		"prefix": "RpcClient",
+		"body": [
+			"VorpCore.RpcCall('$1', function (result)\n\tif result then\n\t\t$0\n\telse\n\t\t\n\tend\nend, args)"
+		],
+		"description": "Create Vorp RPC Callback on client"
+	},
+	"Create Default fxmanifest": {
+		"prefix": "fxmanifest",
+		"body": [
+			"fx_version 'adamant'",
+			"rdr3_warning 'I acknowledge that this is a prerelease build of RedM, and I am aware my resources *will* become incompatible once RedM ships.'",
+			"games { 'rdr3' }\n",
+			"author '$1'",
+			"description 'Eldorado $2'",
+			"lua54 'yes'\n",
+			"client_scripts {\n\t'client/*.lua',\n}\n",
+			"server_scripts {\n\t'server/*.lua',\n}\n",
+			"shared_scripts {\n\t'config.lua',\n}\n"
+		],
+		"description": "Creates a default fxmanifest"
+	},
+	"Create onResourceStop Listener": {
+		"prefix": "onResourceStop",
+		"body": [
+			"AddEventHandler('onResourceStop', function(resourceName)",
+				"\tif (GetCurrentResourceName() ~= resourceName) then return end\n",
+				"\t$0",
+			"end)"
+		],
+		"description": "AddEventHandler for onResourceStop"
+	}
+}

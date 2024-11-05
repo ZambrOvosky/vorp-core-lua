@@ -1,0 +1,24 @@
+{
+	"recommendations": [
+		"sumneko.lua",
+		"mgmcdermott.vscode-language-babel",
+		"overextended.cfxlua-vscode",
+		"naumovs.color-highlight",
+		"dbaeumer.vscode-eslint",
+		"oliversturm.fix-json",
+		"github.vscode-pull-request-github",
+		"eamodio.gitlens",
+		"visualstudioexptteam.vscodeintellicode",
+		"visualstudioexptteam.intellicode-api-usage-examples",
+		"xabikos.javascriptsnippets",
+		"ms-vsliveshare.vsliveshare",
+		"informagico.vscode-lua-minify",
+		"mtxr.sqltools",
+		"mtxr.sqltools-driver-mysql",
+		"outsider3100.vorp-framework-vsc",
+		"lihui.vs-color-picker",
+		"dotjoshjohnson.xml",
+		"aeschli.vscode-css-formatter",
+		"ecmel.vscode-html-css"
+	]
+}

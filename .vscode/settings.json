@@ -1,0 +1,112 @@
+{
+	"editor.formatOnPaste": true,
+	"editor.formatOnType": true,
+	"editor.minimap.showSlider": "always",
+	"editor.renderWhitespace": "boundary",
+	"editor.renderControlCharacters": true,
+	"editor.largeFileOptimizations": true,
+	"editor.wordWrapColumn": 5000,
+	"editor.wordWrap": "bounded",
+	"editor.detectIndentation": false,
+	"editor.wrappingIndent": "indent",
+	"editor.insertSpaces": false,
+	"editor.tabCompletion": "onlySnippets",
+	"editor.formatOnSave": false,
+	"diffEditor.wordWrap": "off",
+	"explorer.confirmDelete": true,
+	"files.trimTrailingWhitespace": true,
+	"files.insertFinalNewline": true,
+	"files.trimFinalNewlines": true,
+	"files.eol": "\r\n",
+	"color-highlight.markerType": "dot-before",
+	"color-highlight.matchWords": true,
+	"javascript.updateImportsOnFileMove.enabled": "never",
+	"cfxlua.game": "rdr3",
+	"Lua.runtime.version": "Lua 5.4",
+	"Lua.runtime.nonstandardSymbol": [
+		"/**/",
+		"`",
+		"+=",
+		"-=",
+		"*=",
+		"/=",
+		"<<=",
+		">>=",
+		"&=",
+		"|=",
+		"^="
+	],
+	"Lua.workspace.ignoreDir": [
+		".git",
+		".github",
+		".vscode",
+		"cache",
+		"artifact",
+		"images",
+		"node_modules",
+		"ipl_tool",
+		"spooner",
+		"vorp_imapviewtool",
+		"vorp_character",
+	],
+	"Lua.diagnostics.enable": true,
+	"Lua.hint.enable": true,
+	"Lua.codeLens.enable": true,
+	"Lua.hint.semicolon": "Disable",
+	"Lua.hover.enumsLimit": 10,
+	"Lua.workspace.checkThirdParty": false,
+	"[lua]": {
+		"editor.formatOnSave": true,
+		"editor.defaultFormatter": "sumneko.lua",
+		"editor.tabSize": 4,
+	},
+	"Lua.typeFormat.config": {
+		"auto_complete_end": "true",
+		"auto_complete_table_sep": "true",
+		"format_line": "true"
+	},
+	"Lua.completion.autoRequire": false,
+	"Lua.completion.callSnippet": "Replace",
+	"Lua.diagnostics.ignoredFiles": "Disable",
+	"Lua.diagnostics.libraryFiles": "Disable",
+	"Lua.diagnostics.disable": [
+		"undefined-global",
+	],
+	"Lua.diagnostics.severity": {
+		"param-type-mismatch": "Hint",
+		"missing-parameter": "Hint"
+	},
+	"Lua.diagnostics.workspaceDelay": -1,
+	"Lua.diagnostics.workspaceEvent": "None",
+	"Lua.diagnostics.globals": [
+		"source"
+	],
+	"Lua.workspace.maxPreload": 5000,
+	"Lua.workspace.preloadFileSize": 500,
+	"git.confirmSync": false,
+	"git.autofetch": true,
+	"git.enableSmartCommit": true,
+	"git.openRepositoryInParentFolders": "never",
+	"githubPullRequests.ignoredPullRequestBranches": [
+		"main"
+	],
+	"githubIssues.useBranchForIssues": "off",
+	"githubIssues.workingIssueFormatScm": "():\nCloses ${issueNumberLabel}",
+	"sqltools.connections": [
+		{
+			"mysqlOptions": {
+				"authProtocol": "default",
+				"enableSsl": "Disabled"
+			},
+			"previewLimit": 50,
+			"server": "localhost",
+			"port": 3306,
+			"driver": "MariaDB",
+			"name": "vorp",
+			"group": "localhost",
+			"database": "vorp",
+			"username": "root",
+			"password": ""
+		}
+	],
+}
