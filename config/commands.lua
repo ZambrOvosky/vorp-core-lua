@@ -21,7 +21,7 @@ local T = Translation[Lang].Commands
         userCheck = true, -- does this command need to check if user is playing ?
         groupAllowed = { "admin" }, -- from users table in the database this group will be allowed to use this command
         aceAllowed = 'vorpcore.setGroup.Command', -- dont touch,
-        --jobsAllow = {}, -- jobs allowed ? remove or leave empty if not needed
+        jobsAllow = {}, -- jobs allowed ? remove or leave empty if not needed
         callFunction = function(...) -- dont touch
             -- this is a function
             -- you can run code here trigger client events or server events , exports etc,
@@ -35,6 +35,146 @@ local T = Translation[Lang].Commands
 
 --==============================
 Commands = {
+    giveExp = {
+        webhook = "",
+        custom = "",
+        title = "",
+        ---#end webhook
+        commandName = "addExp",
+        label = "add experince to players, this will auto level too",
+        suggestion = {
+            { name = "id",    help = "player id" },
+            { name = "skill", help = "skill category like Crafting" },
+            { name = "Exp",   help = "amount of experience you wish to give to player" },
+        },
+        userCheck = true,
+        groupAllowed = { "admin" },
+        aceAllowed = 'vorpcore.setExp.Command',
+        callFunction = function(...)
+            SetExp(...)
+        end
+    },
+    myExp = {
+        webhook = "",
+        custom = "",
+        title = "",
+        commandName = "myExp",
+        label = "check your skill experience",
+        suggestion = {
+            { name = "skill", help = "skill category like Crafting" },
+        },
+        userCheck = false,
+        groupAllowed = {},
+        aceAllowed = nil,
+        callFunction = function(...)
+            MyExp(...)
+        end
+    },
+    addgroup = {
+        webhook = "",
+        custom = T.addGroup.custom,
+        title = T.addGroup.tittle,
+        ---#end webhook
+        commandName = "addGroup",
+        label = T.addGroup.label,
+        suggestion = {
+            { name = T.addGroup.name,  help = T.addGroup.help },
+            { name = T.addGroup.name1, help = T.addGroup.help1 },
+        },
+        userCheck = true,
+        groupAllowed = { "admin" },
+        aceAllowed = 'vorpcore.setGroup.Command',
+        callFunction = function(...)
+            SetGroup(...)
+        end
+    },
+    addJob = {
+        webhook = "",
+        custom = T.addJob.custom,
+        title = T.addJob.title,
+        ---#end webhook
+        commandName = "addJob",
+        label = T.addJob.label,
+        suggestion = {
+            { name = T.addJob.name,  help = T.addJob.help },
+            { name = T.addJob.name1, help = T.addJob.help1 },
+            { name = T.addJob.name2, help = T.addJob.help2 },
+            { name = T.addJob.name3, help = T.addJob.help3 },
+        },
+        userCheck = true,
+        groupAllowed = { "admin" },
+        aceAllowed = 'vorpcore.setJob.Command',
+        callFunction = function(...)
+            AddJob(...)
+        end
+    },
+    addItem = {
+        webhook = "",
+        custom = T.addItem.custom,
+        title = T.addItem.title,
+        ---#end webhook
+        commandName = "addItems",
+        label = T.addItem.label,
+        suggestion = {
+            { name = T.addItem.name,  help = T.addItem.help },
+            { name = T.addItem.name1, help = T.addItem.help1 },
+            { name = T.addItem.name2, help = T.addItem.help2 },
+        },
+        userCheck = true,
+        groupAllowed = { "admin" },
+        aceAllowed = 'vorpcore.additems.Command',
+        callFunction = function(...)
+            AddItems(...)
+        end
+    },
+    addWeapon = {
+        webhook = "",
+        custom = T.addWeapon.custom,
+        title = T.addWeapon.title,
+        ---#end webhook
+        commandName = "addWeapon",
+        label = T.addWeapon.label,
+        suggestion = {
+            { name = T.addWeapon.name,  help = T.addWeapon.help },
+            { name = T.addWeapon.name1, help = T.addWeapon.help1 },
+        },
+        userCheck = true,
+        groupAllowed = { "admin" },
+        aceAllowed = 'vorpcore.addweapons.Command',
+        callFunction = function(...)
+            AddWeapons(...)
+        end
+    },
+    delMoney = {
+        webhook = "",
+        custom = T.delMoney.custom,
+        title = T.delMoney.title,
+        ---#end webhook
+        commandName = "delMoney",
+        label = T.delMoney.label,
+        suggestion = {
+            { name = T.delMoney.name,  help = T.delMoney.help },
+            { name = T.delMoney.name1, help = T.delMoney.help1 },
+            { name = T.delMoney.name2, help = T.delMoney.help2 },
+        },
+        userCheck = true,
+        groupAllowed = { "admin" },
+        aceAllowed = 'vorpcore.delCurrency.Command',
+        callFunction = function(...)
+            RemmoveCurrency(...)
+        end
+    },
+    addMoney = {
+        webhook = "",
+        custom = T.addMoney.custom,
+        title = T.addMoney.title,
+        ---#end webhook
+        commandName = "addMoney",
+        label = T.addMoney.label,
+        suggestion = {
+            { name = T.addMoney.name,  help = T.addMoney.help },
+            { name = T.addMoney.name1, help = T.addMoney.help1 },
+            { name = T.addMoney.name2, help = T.addMoney.help2 },
 	addgroup = {
 		webhook = 'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
 		custom = T.addGroup.custom,
@@ -140,6 +280,102 @@ Commands = {
 			{ name = T.addMoney.name1, help = T.addMoney.help1 },
 			{ name = T.addMoney.name2, help = T.addMoney.help2 },
 
+        },
+        userCheck = true,
+        groupAllowed = { "admin" },
+        aceAllowed = 'vorpcore.setGroup.Command',
+        callFunction = function(...)
+            AddMoney(...)
+        end
+    },
+    delWagons = {
+        webhook = "",
+        custom = T.delWagons.custom,
+        title = T.delWagons.title,
+        ---#end webhook
+        commandName = "delWagons",
+        label = T.delWagons.label,
+        suggestion = {
+            { name = T.delWagons.name, help = T.delWagons.help },
+        },
+        userCheck = false,
+        groupAllowed = { "admin" },
+        aceAllowed = 'vorpcore.delwagons.Command',
+        callFunction = function(...)
+            DeleteWagons(...)
+        end
+    },
+    revive = {
+        webhook = "",
+        custom = T.revive.custom,
+        title = T.revive.title,
+        commandName = "revive",
+        label = T.revive.label,
+        suggestion = {
+            { name = T.revive.name, help = T.revive.help }
+        },
+        userCheck = true,
+        groupAllowed = { "admin" },
+        aceAllowed = 'vorpcore.reviveplayer.Command',
+        callFunction = function(...)
+            RevivePlayer(...)
+        end
+    },
+    teleport = {
+        webhook = "",
+        custom = T.teleport.custom,
+        title = T.teleport.title,
+        commandName = "tpm",
+        label = T.teleport.label,
+        suggestion = {},
+        userCheck = false,
+        groupAllowed = { "admin" },
+        aceAllowed = 'vorpcore.tpm.Command',
+        callFunction = function(...)
+            TeleporPlayer(...)
+        end
+    },
+    delHorse = {
+        webhook = "",
+        custom = T.delHorse.custom,
+        title = T.delHorse.title,
+        commandName = "delHorse",
+        label = T.delHorse.label,
+        suggestion = {},
+        userCheck = false,
+        groupAllowed = { "admin" },
+        aceAllowed = 'vorpcore.delhorse.Command',
+        callFunction = function(...)
+            DeleteHorse(...)
+        end
+    },
+    heal = {
+        webhook = "",
+        custom = T.heal.custom,
+        title = T.heal.title,
+        commandName = "heal",
+        label = T.heal.label,
+        suggestion = {
+            { name = T.heal.name, help = T.heal.help }
+        },
+        userCheck = true,
+        groupAllowed = { "admin" },
+        aceAllowed = 'vorpcore.healplayer.Command',
+        callFunction = function(data)
+            -- in here you can add your metabolism events
+            TriggerClientEvent("vorpmetabolism:changeValue", tonumber(data.args[1]), "Thirst", 1000)
+            TriggerClientEvent("vorpmetabolism:changeValue", tonumber(data.args[1]), "Hunger", 1000)
+            HealPlayers(data)
+        end
+    },
+    addWhitelist = {
+        webhook = "",
+        custom = T.addWhitelist.custom,
+        title = T.addWhitelist.title,
+        commandName = "addWhtelist",
+        label = T.addWhitelist.label,
+        suggestion = {
+            { name = T.addWhitelist.name, help = T.addWhitelist.help },
 		},
 		userCheck = true,
 		groupAllowed = { 'admin' },
@@ -221,12 +457,11 @@ Commands = {
 		userCheck = true,
 		groupAllowed = { 'admin' },
 		aceAllowed = 'vorpcore.healplayer.Command',
-		callFunction = function(...)
-			local data = ...
+		callFunction = function(data)
 			-- in here you can add your metabolism events
-			TriggerClientEvent('vorpmetabolism:changeValue', data.source, 'Thirst', 1000)
-			TriggerClientEvent('vorpmetabolism:changeValue', data.source, 'Hunger', 1000)
-			HealPlayers(...)
+			TriggerClientEvent('vorpmetabolism:changeValue', data.args[1], 'Thirst', 1000)
+			TriggerClientEvent('vorpmetabolism:changeValue', data.args[1], 'Hunger', 1000)
+			HealPlayers(data)
 		end,
 	},
 	addWhitelist = {
@@ -371,8 +606,9 @@ Commands = {
 		label = T.charCreateRemove.label,
 		suggestion = {
 			{ name = T.charCreateRemove.name, help = T.charCreateRemove.help },
-		},
-		userCheck = false,
+			{ name = T.charCreateAdd.name1, help = T.charCreateAdd.help1 },
+        },
+        userCheck = true,
 		groupAllowed = { 'admin' },
 		aceAllowed = 'vorpcore.removechar.Command',
 		callFunction = function(...)
@@ -404,5 +640,6 @@ Commands = {
 		end,
 	},
 	-- create your commands here just copy from above , see first line on how to do it
+
 
 }
