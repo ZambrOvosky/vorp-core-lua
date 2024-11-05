@@ -1,20 +1,4 @@
 ---@class User
----@field Source fun(value:number):number
----@field Numofcharacters fun(value:number):number
----@field Identifier fun(value:string):string
----@field License fun(value:string):string
----@field Group fun(value:string):string
----@field Playerwarnings fun(value:number):number
----@field Charperm fun(value:boolean):boolean
----@field GetUser fun():{getCharperm:boolean, source:number, getGroup:string, getUsedCharacter:table, getUserCharacters:table, getIdentifier:fun():string, getPlayerwarnings:fun():number, setPlayerWarnings:fun(warnings:number), setGroup:fun(group:string), setCharperm:fun(char:boolean), getNumOfCharacters:fun():number, addCharacter:fun(firstname:string, lastname:string, skin:table, comps:table), removeCharacter:fun(charid:number), setUsedCharacter:fun(charid:number)}
----@field UsedCharacter fun():table
----@field UserCharacters fun():table
----@field LoadCharacters fun()
----@field addCharacter fun(firstname:string, lastname:string, skin:table, comps:table)
----@field delCharacter fun(charIdentifier:number)
----@field GetUsedCharacter fun():table
----@field SetUsedCharacter fun(charid:number)
----@field SaveUser fun(coords:table, heading:number)
 
 
 ---@param source number
@@ -41,64 +25,51 @@ function User(source, identifier, group, playerwarnings, license, char)
         if value ~= nil then
             self.usedCharacterId = value
             self._usercharacters[value].source = self.source
-            self._usercharacters[value].updateCharUi()
             TriggerClientEvent("vorp:SelectedCharacter", self.source, self.usedCharacterId)
-            TriggerEvent("vorp:SelectedCharacter", self.source, self._usercharacters[self.usedCharacterId].getCharacter())
-            Player(self.source).state:set('Character',
-                {
-                    Group = self._usercharacters[self.usedCharacterId].getCharacter().group,
-                    FirstName = self._usercharacters[self.usedCharacterId].getCharacter().firstname,
-                    LastName = self._usercharacters[self.usedCharacterId].getCharacter().lastname,
-                    Job = self._usercharacters[self.usedCharacterId].getCharacter().job,
-                    JobLabel = self._usercharacters[self.usedCharacterId].getCharacter().jobLabel,
-                    Grade = self._usercharacters[self.usedCharacterId].getCharacter().jobGrade,
-                    IsInSession = true
 
-                }, true)
+            self._usercharacters[value].updateCharUi()
+            TriggerEvent("vorp:SelectedCharacter", self.source, self._usercharacters[self.usedCharacterId].getCharacter())
         end
 
         return self.usedCharacterId
     end
 
-
     self.Source = function(value)
-        if value then
+        if value ~= nil then
             self.source = value
         end
         return self.source
     end
-
     self.Numofcharacters = function(value)
-        if value then
+        if value ~= nil then
             self._numofcharacters = value
         end
         return self._numofcharacters
     end
-
     self.Identifier = function(value)
-        if value then
+        if value ~= nil then
             self._identifier = value
         end
         return self._identifier
     end
-
     self.License = function(value)
-        if value then
+        if value ~= nil then
             self._license = value
         end
         return self._license
     end
 
     self.Group = function(value)
-        if value then
+        if value ~= nil then
             self._group = value
-            MySQL.update("UPDATE users SET `group` = ? WHERE `identifier` = ?", { self._group, self.Identifier() })
+            MySQL.update("UPDATE users SET `group` = ? WHERE `identifier` = ?",
+                { self._group, self.Identifier() })
         end
         return self._group
     end
 
     self.Playerwarnings = function(value)
-        if value then
+        if value ~= nil then
             self._playerwarnings = value
             MySQL.update("UPDATE users SET `warnings` = ? WHERE `identifier` = ?",
                 { self._playerwarnings, self.Identifier() })
@@ -110,7 +81,8 @@ function User(source, identifier, group, playerwarnings, license, char)
     self.Charperm = function(value)
         if value ~= nil then
             self._charperm = value
-            MySQL.update("UPDATE users SET `char` = ? WHERE `identifier` = ?", { self._charperm, self.Identifier() })
+            MySQL.update("UPDATE users SET `char` = ? WHERE `identifier` = ?",
+                { self._charperm, self.Identifier() })
         end
 
         return self._charperm
@@ -118,15 +90,12 @@ function User(source, identifier, group, playerwarnings, license, char)
 
     self.GetUser = function()
         local userData = {}
-        userData.getCharperm = self.Charperm()
-        userData.source = self.source
-        userData.getGroup = self.Group()
-        userData.getUsedCharacter = self.UsedCharacter()
-        userData.getUserCharacters = self.UserCharacters()
 
         userData.getIdentifier = function()
             return self.Identifier()
         end
+
+        userData.getGroup = self.Group()
 
         userData.getPlayerwarnings = function()
             return self.Playerwarnings()
@@ -136,6 +105,10 @@ function User(source, identifier, group, playerwarnings, license, char)
             self.Playerwarnings(warnings)
         end
 
+        userData.getCharperm = self.Charperm()
+
+        userData.source = self.source
+
         userData.setGroup = function(group)
             self.Group(group)
         end
@@ -144,18 +117,21 @@ function User(source, identifier, group, playerwarnings, license, char)
             self.Charperm(char)
         end
 
+        userData.getUsedCharacter = self.UsedCharacter()
+        userData.getUserCharacters = self.UserCharacters()
+
         userData.getNumOfCharacters = function()
             return self._numofcharacters
         end
 
         userData.addCharacter = function(firstname, lastname, skin, comps)
-            self._numofcharacters = self._numofcharacters + 1
+            self._numofcharacters = self._numofcharacters + 1 --Should not be done like this
             self.addCharacter(firstname, lastname, skin, comps)
         end
 
         userData.removeCharacter = function(charid)
             if self._usercharacters[charid] then
-                self._numofcharacters = self._numofcharacters - 1
+                self._numofcharacters = self._numofcharacters - 1 --Should not be done like this
                 self.delCharacter(charid)
             end
         end
@@ -191,34 +167,14 @@ function User(source, identifier, group, playerwarnings, license, char)
                 if #usercharacters then
                     for _, character in ipairs(usercharacters) do
                         if character.identifier then
-                            local data = {
-                                identifier = character.identifier,
-                                charIdentifier = character.charidentifier,
-                                group = character.group,
-                                job = character.job,
-                                jobgrade = character.jobgrade,
-                                joblabel = character.joblabel,
-                                firstname = character.firstname,
-                                lastname = character.lastname,
-                                inventory = character.inventory,
-                                status = character.status,
-                                coords = character.coords,
-                                money = character.money,
-                                gold = character.gold,
-                                rol = character.rol,
-                                healthOuter = character.healthouter,
-                                healthInner = character.healthinner,
-                                staminaOuter = character.staminaouter,
-                                staminaInner = character.staminainner,
-                                xp = character.xp,
-                                hours = character.hours,
-                                isdead = character.isdead,
-                                skin = character.skinPlayer,
-                                comps = character.compPlayer,
-                                source = self.source
-                            }
+                            local newCharacter = Character(self.source, self._identifier, character.charidentifier,
+                                character.group, character.job, character.jobgrade, character.firstname,
+                                character.lastname, character.inventory, character.status, character.coords,
+                                character.money, character.gold, character.rol, character.healthouter,
+                                character.healthinner, character.staminaouter, character.staminainner,
+                                character.xp, character.hours, character.isdead, character.skinPlayer,
+                                character.compPlayer)
 
-                            local newCharacter = Character(data)
                             self._usercharacters[newCharacter.CharIdentifier()] = newCharacter
                         end
                     end
@@ -227,34 +183,11 @@ function User(source, identifier, group, playerwarnings, license, char)
     end
 
     self.addCharacter = function(firstname, lastname, skin, comps)
-        local data = {
-            identifier = self._identifier,
-            charIdentifier = -1,
-            group = Config.initGroup,
-            job = Config.initJob,
-            jobgrade = Config.initJobGrade,
-            joblabel = Config.initJobLabel,
-            firstname = firstname,
-            lastname = lastname,
-            inventory = "{}",
-            status = "{}",
-            coords = "{}",
-            money = Config.initMoney,
-            gold = Config.initGold,
-            rol = Config.initRol,
-            healthOuter = 500,
-            healthInner = 100,
-            staminaOuter = 500,
-            staminaInner = 100,
-            xp = Config.initXp,
-            hours = 0,
-            isdead = false,
-            skin = skin,
-            comps = comps,
-            source = self.source
-        }
+        local newChar = Character(self.source, self._identifier, -1, Config.initGroup, Config.initJob,
+            Config.initJobGrade, firstname, lastname, "{}", "{}", "{}", Config.initMoney, Config.initGold,
+            Config.initRol
+            , 500, 100, 500, 100, Config.initXp, 0, false, skin, comps)
 
-        local newChar = Character(data)
         newChar.SaveNewCharacterInDb(function(id)
             newChar.CharIdentifier(id)
             self._usercharacters[id] = newChar

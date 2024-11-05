@@ -1,4 +1,4 @@
--- NOTIFICATIONS
+--============================= NOTIFICATIONS ==========================================--
 RegisterNetEvent('vorp:NotifyLeft')
 RegisterNetEvent('vorp:Tip')
 RegisterNetEvent('vorp:NotifyTop')
@@ -17,7 +17,8 @@ RegisterNetEvent('vorp:LeftRank')
 
 
 AddEventHandler('vorp:NotifyLeft', function(firsttext, secondtext, dict, icon, duration, color)
-    VorpNotification:NotifyLeft(tostring(firsttext), tostring(secondtext), tostring(dict), tostring(icon), tonumber(duration), (tostring(color) or "COLOR_WHITE"))
+    VorpNotification:NotifyLeft(tostring(firsttext), tostring(secondtext), tostring(dict), tostring(icon)
+    , tonumber(duration), (tostring(color) or "COLOR_WHITE"))
 end)
 
 AddEventHandler('vorp:Tip', function(text, duration)
@@ -47,7 +48,7 @@ end)
 
 AddEventHandler('vorp:ShowBasicTopNotification', function(text, duration)
     VorpNotification:NotifyBasicTop(tostring(text), tonumber(duration))
-end)
+end)       
 
 AddEventHandler('vorp:ShowSimpleCenterText', function(text, duration)
     VorpNotification:NotifyCenter(tostring(text), tonumber(duration))
@@ -75,5 +76,6 @@ AddEventHandler('vorp:warningNotify', function(title, msg, audioRef, audioName, 
 end)
 
 AddEventHandler('vorp:LeftRank', function(title, subtitle, dict, icon, duration, color)
-    VorpNotification:NotifyLeftRank(tostring(title), tostring(subtitle), tostring(dict), tostring(icon), tonumber(duration), (tostring(color)))
+    VorpNotification:NotifyLeftRank(tostring(title), tostring(subtitle), tostring(dict), tostring(icon) , tonumber(duration), (tostring(color))) 
 end)
+ 

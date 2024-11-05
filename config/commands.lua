@@ -36,8 +36,7 @@ local T = Translation[Lang].Commands
 --==============================
 Commands = {
 	addgroup = {
-		webhook =
-		'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
+		webhook = 'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
 		custom = T.addGroup.custom,
 		title = T.addGroup.tittle,
 		---#end webhook
@@ -55,8 +54,7 @@ Commands = {
 		end,
 	},
 	addJob = {
-		webhook =
-		'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
+		webhook = 'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
 		custom = T.addJob.custom,
 		title = T.addJob.title,
 		---#end webhook
@@ -66,7 +64,6 @@ Commands = {
 			{ name = T.addJob.name,  help = T.addJob.help },
 			{ name = T.addJob.name1, help = T.addJob.help1 },
 			{ name = T.addJob.name2, help = T.addJob.help2 },
-			{ name = T.addJob.name3, help = T.addJob.help3 },
 		},
 		userCheck = true,
 		groupAllowed = { 'admin' },
@@ -76,8 +73,7 @@ Commands = {
 		end,
 	},
 	addItem = {
-		webhook =
-		'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
+		webhook = 'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
 		custom = T.addItem.custom,
 		title = T.addItem.title,
 		---#end webhook
@@ -96,8 +92,7 @@ Commands = {
 		end,
 	},
 	addWeapon = {
-		webhook =
-		'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
+		webhook = 'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
 		custom = T.addWeapon.custom,
 		title = T.addWeapon.title,
 		---#end webhook
@@ -115,8 +110,7 @@ Commands = {
 		end,
 	},
 	delMoney = {
-		webhook =
-		'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
+		webhook = 'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
 		custom = T.delMoney.custom,
 		title = T.delMoney.title,
 		---#end webhook
@@ -135,8 +129,7 @@ Commands = {
 		end,
 	},
 	addMoney = {
-		webhook =
-		'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
+		webhook = 'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
 		custom = T.addMoney.custom,
 		title = T.addMoney.title,
 		---#end webhook
@@ -156,8 +149,7 @@ Commands = {
 		end,
 	},
 	delWagons = {
-		webhook =
-		'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
+		webhook = 'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
 		custom = T.delWagons.custom,
 		title = T.delWagons.title,
 		---#end webhook
@@ -174,8 +166,7 @@ Commands = {
 		end,
 	},
 	revive = {
-		webhook =
-		'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
+		webhook = 'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
 		custom = T.revive.custom,
 		title = T.revive.title,
 		commandName = 'revive',
@@ -191,8 +182,7 @@ Commands = {
 		end,
 	},
 	teleport = {
-		webhook =
-		'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
+		webhook = 'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
 		custom = T.teleport.custom,
 		title = T.teleport.title,
 		commandName = 'tpm',
@@ -206,8 +196,7 @@ Commands = {
 		end,
 	},
 	delHorse = {
-		webhook =
-		'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
+		webhook = 'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
 		custom = T.delHorse.custom,
 		title = T.delHorse.title,
 		commandName = 'delHorse',
@@ -221,8 +210,7 @@ Commands = {
 		end,
 	},
 	heal = {
-		webhook =
-		'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
+		webhook = 'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
 		custom = T.heal.custom,
 		title = T.heal.title,
 		commandName = 'heal',
@@ -236,14 +224,13 @@ Commands = {
 		callFunction = function(...)
 			local data = ...
 			-- in here you can add your metabolism events
-			TriggerClientEvent("vorpmetabolism:changeValue", tonumber(data.args[1]), "Thirst", 1000)
-			TriggerClientEvent("vorpmetabolism:changeValue", tonumber(data.args[1]), "Hunger", 1000)
+			TriggerClientEvent('vorpmetabolism:changeValue', data.source, 'Thirst', 1000)
+			TriggerClientEvent('vorpmetabolism:changeValue', data.source, 'Hunger', 1000)
 			HealPlayers(...)
 		end,
 	},
 	addWhitelist = {
-		webhook =
-		'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
+		webhook = 'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
 		custom = T.addWhitelist.custom,
 		title = T.addWhitelist.title,
 		commandName = 'addWhtelist',
@@ -260,8 +247,7 @@ Commands = {
 		end,
 	},
 	unWhitelist = {
-		webhook =
-		'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
+		webhook = 'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
 		custom = T.unWhitelist.custom,
 		title = T.unWhitelist.title,
 		commandName = 'unWhitelist',
@@ -277,8 +263,7 @@ Commands = {
 		end,
 	},
 	ban = {
-		webhook =
-		'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
+		webhook = 'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
 		custom = T.ban.custom,
 		title = T.ban.title,
 		commandName = 'ban',
@@ -295,8 +280,7 @@ Commands = {
 		end,
 	},
 	unBan = {
-		webhook =
-		'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
+		webhook = 'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
 		custom = T.unBan.custom,
 		title = T.unBan.title,
 		commandName = 'unBan',
@@ -312,8 +296,7 @@ Commands = {
 		end,
 	},
 	warn = {
-		webhook =
-		'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
+		webhook = 'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
 		custom = T.warn.custom,
 		title = T.warn.title,
 		commandName = 'warn',
@@ -329,8 +312,7 @@ Commands = {
 		end,
 	},
 	unWarn = {
-		webhook =
-		'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
+		webhook = 'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
 		custom = T.unWarn.custom,
 		title = T.unWarn.title,
 		commandName = 'unWarn',
@@ -346,8 +328,7 @@ Commands = {
 		end,
 	},
 	charName = {
-		webhook =
-		'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
+		webhook = 'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
 		custom = T.charName.custom,
 		title = T.charName.title,
 		commandName = 'modifyCharName',
@@ -366,8 +347,7 @@ Commands = {
 		end,
 	},
 	charCreateAdd = {
-		webhook =
-		'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
+		webhook = 'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
 		custom = T.charCreateAdd.custom,
 		title = T.charCreateAdd.title,
 		commandName = 'addChar',
@@ -383,8 +363,7 @@ Commands = {
 		end,
 	},
 	charCreateRemove = {
-		webhook =
-		'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
+		webhook = 'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
 		custom = T.charCreateRemove.custom,
 		title = T.charCreateRemove.title,
 		--end webhook
@@ -401,27 +380,25 @@ Commands = {
 		end,
 	},
 	myJob = {
-		webhook =
-		'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
+		webhook = 'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
 		commandName = 'myJob',
 		label = T.myJob.label,
 		suggestion = {},
 		userCheck = false,
 		groupAllowed = {}, -- leave empty anyone can use
-		aceAllowed = nil, -- leave nil anyone can use
+		aceAllowed = nil,  -- leave nil anyone can use
 		callFunction = function(...)
 			MyJob(...)
 		end,
 	},
 	myHours = {
-		webhook =
-		'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
+		webhook = 'https://discord.com/api/webhooks/1123833463510925362/W6lpzmi5gvXJIG8aKZY2TgGOsVGdRw0OpF9PfmbzInb7Oa12n_f4nZdSkM1LH5D46sYC',
 		commandName = 'myHours',
 		label = T.myHours.label,
 		suggestion = {},
 		userCheck = false,
 		groupAllowed = {}, -- leave empty anyone can use
-		aceAllowed = nil, -- leave nil anyone can use
+		aceAllowed = nil,  -- leave nil anyone can use
 		callFunction = function(...)
 			MyHours(...)
 		end,

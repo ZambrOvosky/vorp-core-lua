@@ -17,16 +17,15 @@ Config = {
 	-- add here players initial money
 	-- for items go to inventory
 	initGold                 = 0.0,
-	initMoney                = 20.0,
+	initMoney                = 30.0,
 	initRol                  = 0.0,
 	initXp                   = 0,
 	initJob                  = 'unemployed', -- leave it like this
 	initJobGrade             = 0,         -- leave it like this
 	initGroup                = 'user',    -- leave it like this
-	initJobLabel             = "Unemployed", -- leave it like this
 	Whitelist                = false,     -- dont use
 	AllowWhitelistAutoUpdate = false,     -- dont use
-	SavePlayersStatus        = true,      -- save players health stamina inner and outter core to DB? att: dont use this it will be removed soon, no place for core.
+	SavePlayersStatus        = true,      -- save players health stamina inner and outter core to DB?
 	maxHealth                = 2,         -- 10 is FULL 0 IS EMPTY define max outer core for players
 	maxStamina               = 5,         -- 10 is FULL 0 IS EMPTY define max outer core for players
 	PVP                      = true,      -- Can players attack/hurt one another
@@ -38,7 +37,6 @@ Config = {
 	SavePlayersHours         = true,      -- if you want to save players played hours in DB, tx admin already have this
 	--========================================
 	---MULTICHAR
-	SaveDiscordNameDB        = true, -- TRUE if you want save discordid on character/user DB when player join and drop (need to update SQL)
 	SaveSteamNameDB          = true, -- TRUE if you want save steamname on character DB when player drop (need to update SQL)
 	UseCharPermission        = false, --| if false it will let players create maxchars bellow
 	MaxCharacters            = 1,  --MAX ALLOWED TO BE CREATED [if UseCharPermission = true, SELECTED players(with command) can create MaxCharacters characters / if UseCharPermission = false, players can create MaxCharacters characters]
@@ -90,7 +88,7 @@ Config = {
 	RagdollOnResurrection    = true,                              -- Enable or disable Ragdoll and revive effects when revived
 	HealthRecharge           = { enable = true, multiplier = 0.00 }, -- enable or disable auto recharge of health outer core (real ped health), multiplier 1.0 is default
 	StaminaRecharge          = { enable = true, multiplier = 0.1 }, -- enable or disable auto recharge of stamina outer core, multiplier 1.0 is default
-	RespawnTime              = 240,                               --seconds
+	RespawnTime              = 900,                               --seconds
 	RespawnKey               = 0xDFF812F9,                        --[E] KEY
 	RespawnKeyTime           = 5000,                              -- Milliseconds it will take to press the button
 	CombatLogDeath           = true,                              -- people who combat log now spawn in dead rather than force spawned
@@ -133,23 +131,14 @@ Config = {
 	SetBothDBadmin           = false, -- if set true should the command addGroup set admins on both tables in databse!
 	--=======================================================
 	---BUILT IN RICH PRESENCE DISCORD
-	maxplayers               = 128,              -- change to the number of players that can get in to your server
-	appid                    = 1148323533395599420, -- Application ID (Replace this with you own)
-	biglogo                  = 'eldorado',       -- image assets name for the "large" icon.
-	biglogodesc              = 'ELDORADO ROLEPLAY', -- text when hover over image
-	smalllogo                = 'redm',           -- image assets name for the "small" icon.(OPTIONAL)
-	smalllogodesc            = 'RedM',           -- text when hover over image
-	richpresencebutton       = 'Juntar-se a nós', --set button text for Rich Presence Button
-	shownameandid            = false,            --show player steam name and id
-	Buttons                  = {                 -- Show Discord Rich Presence Button
-		{
-			text = 'Juntar-se',
-			url = 'https://cfx.re/join/emkrem' -- Example for Rich Presence Button
-		},
-		{
-			text = 'Discord',
-			url = 'https://discord.gg/EldoradoRP' -- Example for Rich Presence Button
-		},
-	}
+	maxplayers               = 128,                          -- change to the number of players that can get in to your server
+	appid                    = 1148323533395599420,          -- Application ID (Replace this with you own)
+	biglogo                  = 'eldorado',                   -- image assets name for the "large" icon.
+	biglogodesc              = 'ELDORADO ROLEPLAY',          -- text when hover over image
+	smalllogo                = 'redm',                       -- image assets name for the "small" icon.(OPTIONAL)
+	smalllogodesc            = 'RedM',                       -- text when hover over image
+	discordlink              = 'https://discord.gg/EldoradoRP', -- discord link
+	richpresencebutton       = 'Juntar-se',                  --set button text for Rich Presence Button
+	shownameandid            = false,                        --show player steam name and id
 	--======================================================
 }
